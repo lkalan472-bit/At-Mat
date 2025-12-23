@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>At&Mat Corporation | Technologie & Innovation</title>
+
+  <!-- Google Font -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="ddd.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    :root {
+  --blue: #00b4ff;
+  --violet: #7a5cff;
+  --green: #00ffae;
+  --bg: #0b0f1a;
+  --text: #ffffff;
+  --glass: rgba(255,255,255,0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+}
+.logo span { color: var(--blue); }
+
+.header nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+}
+.hero-content h1 span {
+  background: linear-gradient(90deg, var(--blue), var(--violet), var(--green));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.primary {
+  background: linear-gradient(90deg, var(--blue), var(--violet));
+  color: white;
+}
+
+.secondary {
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+/* SERVICES */
+.services {
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.service-card {
+  background: var(--glass);
+  padding: 30px;
+  border-radius: 20px;
+  transition: transform 0.4s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-card i {
+  font-size: 40px;
+  color: var(--blue);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: black;
+}
+
+/* === ANIMATIONS === */
+.hero-content,
+.service-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow futuriste */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(120deg, transparent, var(--blue), transparent);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.service-card:hover::before {
+  opacity: 0.15;
+}
+
+/* Hover futuriste */
+.service-card:hover {
+  box-shadow: 0 0 25px rgba(0,180,255,0.3);
+}
+
+.header nav a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: var(--green);
+  transition: 0.4s;
+}
+
+.header nav a:hover::before {
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+<div id="loader">
+  <div class="loader-circle"></div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="logo">At<span>&</span>Mat</div>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Services</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <button id="themeToggle"><i class="fas fa-moon"></i></button>
+  </nav>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-content">
+   <h1>
+  Solutions <span id="dynamic-text"></span>
+</h1>
+
+    <p>
+      At&Mat Corporation accompagne votre transformation numérique
+      grâce au développement web & mobile, IA, cybersécurité et cloud.
+    </p>
+    <div class="hero-buttons">
+      <a href="#" class="btn primary">Nos services</a>
+      <a href="#" class="btn secondary">Nous contacter</a>
+    </div>
+  </div>
+
+  <div class="hero-glow"></div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services">
+  <h2>Nos Services</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <i class="fas fa-code"></i>
+      <h3>Développement Web & Mobile</h3>
+      <p>Sites modernes, applications performantes et solutions sur mesure.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-shield-halved"></i>
+      <h3>Cybersécurité</h3>
+      <p>Protection des systèmes, données sécurisées et audits professionnels.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-brain"></i>
+      <h3>Intelligence Artificielle</h3>
+      <p>Automatisation intelligente et solutions IA adaptées aux entreprises.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-cloud"></i>
+      <h3>Cloud Computing</h3>
+      <p>Solutions cloud fiables, rapides et sécurisées.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Conseil Numérique</h3>
+      <p>Accompagnement stratégique pour la transformation digitale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>📍 Goma – Commune de Goma, Quartier Himbi, Avenue Molato N°56</p>
+  <p>© 2025 At&Mat Corporation – Tous droits réservés</p>
+</footer>
+
+<script src="./js/script.js"></script>
+</body>
+</html>
